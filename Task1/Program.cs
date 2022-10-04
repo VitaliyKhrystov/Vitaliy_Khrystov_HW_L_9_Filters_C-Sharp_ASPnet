@@ -1,3 +1,5 @@
+using Task1.Infrastructure;
+
 namespace Task1
 {
     public class Program
@@ -12,16 +14,19 @@ namespace Task1
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            //Make Global Attribute
+            builder.Services.AddControllersWithViews(option =>
+            {
+                option.Filters.Add<ProfileAttribute>();
+            });
+
+            
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
