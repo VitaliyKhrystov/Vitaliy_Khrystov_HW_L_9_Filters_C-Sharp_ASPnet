@@ -1,0 +1,19 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Register</h1>
+    <form asp-action="Register" asp-controller="Home" method="post">
+        <label asp-for="Name"></label><br />
+        <input asp-for="Name"/> <br />
+        <span asp-validation-for="Name" style="color:red;"></span> <br />
+
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email"/> <br />
+        <span asp-validation-for="Email" style="color:red;"></span> <br />
+
+        <input type="submit" value="Register"/>
+    </form>
+</div>

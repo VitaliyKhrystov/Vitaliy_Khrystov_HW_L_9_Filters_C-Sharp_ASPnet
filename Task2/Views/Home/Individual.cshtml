@@ -1,0 +1,16 @@
+﻿@using Newtonsoft.Json
+@model Person
+@{
+    ViewData["Title"] = "Home Page";
+    string path = "JSON/person.json";
+    List<Person> persons = new List<Person>();
+    if (File.Exists(path))
+    {
+        persons = JsonConvert.DeserializeObject<List<Person>>(File.ReadAllText(path)) == null ? new List<Person>() : JsonConvert.DeserializeObject<List<Person>>(File.ReadAllText(path));
+    }
+}
+
+<div class="text-center">
+      
+      <h1 style="margin-top: 50px; color:blue;"> IndividualClient: @persons.Count </h1>
+</div>

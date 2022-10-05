@@ -1,0 +1,22 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (Model == null)
+    {
+        <a asp-action="Register" asp-controller="Home">Регистрация</a>
+    }else
+    {
+        <p>Ім'я: @Model.Name</p>
+        <p>Email: @Model.Email</p>
+
+        <form asp-action="Exit" asp-controller="Home">
+            <input type="submit" value="Exit" />
+        </form>
+
+            <h1 style="margin-top: 50px;"><a asp-action="Individual" style="color:blue;"> Individual</a></h1>
+    }
+    
+</div>
